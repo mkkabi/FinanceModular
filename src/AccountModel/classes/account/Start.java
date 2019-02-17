@@ -1,81 +1,71 @@
-
 package account;
 
-import java.sql.*;
-  
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+//https://hc.apache.org/httpcomponents-client-ga/tutorial/html/index.html
+//https://www.tutorialspoint.com/spring/event_handling_in_spring.htm
 
 public class Start {
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/test";
- 	//  Database credentials
-	static final String USER = "mkkabi";
-	static final String PASS = "";
-	
-	public static void main(String[] args) {
-		Connection conn = null;
-		Statement stmt = null;
-		try {
-			//STEP 2: Register JDBC driver - not necessary in version 4 driver
-			/* using the Class.forName() method is compatible with both JDBC
-3.0 and JDBC 4.0 drivers. It is simply not needed when the driver supports
-4.0. 		*/
-			//Class.forName("com.mysql.jdbc.Driver");
-			
-			//STEP 3: Open a connection
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			//STEP 4: Execute a query
-			stmt = conn.createStatement();
-			// Create table Persons and add data
-			stmt.execute(Quieries.createTablePersons);
-			stmt.execute(Quieries.addDataPersons);
 
-			
-			ResultSet rs = stmt.executeQuery(Quieries.selectStatement);
+    public static void main(String[] args) throws IOException {
 
-			//STEP 5: Extract data from result set
-			while (rs.next()) {
-				//Retrieve by column name
-				int id = rs.getInt("ID");
-				String first = rs.getString("FirstName");
-				String last = rs.getString("LastName");
-				String address = rs.getString("Address");
-				String city = rs.getString("City");
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
+            CloseableHttpResponse response1 = httpclient.execute(httpGet);
+            // The underlying HTTP connection is still held by the response object
+            // to allow the response content to be streamed directly from the network socket.
+            // In order to ensure correct deallocation of system resources
+            // the user MUST call CloseableHttpResponse#close() from a finally clause.
+            // Please note that if response content is not fully consumed the underlying
+            // connection cannot be safely re-used and will be shut down and discarded
+            // by the connection manager.
+            try {
+                System.out.println(response1.getStatusLine());
+                HttpEntity entity1 = response1.getEntity();
+                // do something useful with the response body
+                // and ensure it is fully consumed
+                EntityUtils.consume(entity1);
+            } finally {
+                response1.close();
+            }
 
-				//Display values
-				System.out.println("ID: " + id + ", Name: " + first + " " + last + ", Address: " + address + ", City: " + city);
-				//Or we can use numbers to access database fields from resultSet
-				System.out.println("ID: " + rs.getInt(1) + ", Name: " + rs.getString(2) + " " + rs.getString(3) + 
-						  ", Address: " + rs.getString(4) + ", City: " + rs.getString(5));
-			}
+            HttpPost httpPost = new HttpPost("http://httpbin.org/post");
+            List<NameValuePair> nvps = new ArrayList<NameValuePair>();
+            nvps.add(new BasicNameValuePair("username", "vip"));
+            nvps.add(new BasicNameValuePair("password", "secret"));
+            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            CloseableHttpResponse response2 = httpclient.execute(httpPost);
 
-			//STEP 6: Clean-up environment
-			rs.close();
-			stmt.close();
-			conn.close();
-		} catch (SQLException se) {
-			//Handle errors for JDBC
-			se.printStackTrace();
-		} catch (Exception e) {
-			//Handle errors for Class.forName
-			e.printStackTrace();
-		} finally {
-			//finally block used to close resources
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-			} catch (SQLException se2) {
-			}// nothing we can do
-			try {
-				if (conn != null) {
-					conn.close();
-				}
-			} catch (SQLException se) {
-				se.printStackTrace();
-			}//end finally try
-		}//end try
-		System.out.println("Goodbye!");
-	}//end main
-	
+            try {
+                System.out.println(response2.getStatusLine());
+                HttpEntity entity2 = response2.getEntity();
+                // do something useful with the response body
+                // and ensure it is fully consumed
+                EntityUtils.consume(entity2);
+            } finally {
+                response2.close();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            httpclient.close();
+        }
+
+    }
 }
