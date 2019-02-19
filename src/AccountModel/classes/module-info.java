@@ -4,6 +4,8 @@ module AccountModel {
 
  //    requires org.apache.commons.codec;
     requires org.apache.httpcomponents.httpclient;
+    requires Json;
+    exports account;
 //    requires org.apache.httpcomponents.httpclient.cache;
 //    requires org.apache.httpcomponents.httpclient.fluent;
 //    requires org.apache.httpcomponents.httpclient.win;

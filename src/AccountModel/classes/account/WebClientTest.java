@@ -25,11 +25,16 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+
 public class WebClientTest {
+    
 
     public static void main(String[] args) throws UnsupportedEncodingException, IOException {
+        
+        
+        
         HttpClient httpclient = HttpClients.createDefault();
-        HttpPost httppost = new HttpPost("http://localhost/test/connect.php");
+        HttpPost httppost = new HttpPost("http://localhost/api/product/read.php");
 
 // Request parameters and other properties.
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);
@@ -48,13 +53,17 @@ if (entity != null) {
     StringBuilder sb = new StringBuilder();
     String line;
     while ((line = reader.readLine()) != null) {
-        System.out.println(" line : " + line);
+        System.out.println(line);
         sb.append(line);
     }
 //    String getResponseString = "";
 //    getResponseString = sb.toString();
 //    System.out.println(getResponseString);
             }
+
+
+        
+      
 
     }
 }

@@ -25,7 +25,8 @@ public class WebClient {
         
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
-            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
+//            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
+            HttpGet httpGet = new HttpGet("http://localhost/api/product/read.php");
             CloseableHttpResponse response1 = httpclient.execute(httpGet);
             // The underlying HTTP connection is still held by the response object
             // to allow the response content to be streamed directly from the network socket.
