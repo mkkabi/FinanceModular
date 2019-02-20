@@ -62,7 +62,7 @@ public class WebClient {
                 response2.close();
             }
         } catch (IOException ex) {
-            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WebClient.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             httpclient.close();
         }
