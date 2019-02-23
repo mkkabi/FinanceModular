@@ -5,5 +5,6 @@
  */
 
 module UI {
-    
+	requires AppModel;
+   requires AccountModel;
 }

@@ -1,6 +1,6 @@
 
 module AccountModel {
 
-    exports account;
+    exports mkkabi.mk.account;
 
 }
