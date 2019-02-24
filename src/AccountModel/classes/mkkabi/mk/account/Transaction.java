@@ -3,7 +3,8 @@ package mkkabi.mk.account;
 import java.time.LocalDateTime;
 
 public class Transaction {
-
+	
+	private int id;
 	private LocalDateTime date;
 	private double amount;
 	private String description;
@@ -48,6 +49,11 @@ public class Transaction {
 
 	public void setSource(Source source) {
 		this.source = source;
+	}
+
+	@Override
+	public String toString() {
+		return "Transaction{" + "date=" + date + ", amount=" + amount + ", description=" + description + ", source=" + source + '}';
 	}
 	
 	

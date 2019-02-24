@@ -5,25 +5,25 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/product.php';
+include_once '../objects/transaction.php';
  
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$transaction = new Transaction($db);
  
 // query products
-$stmt = $product->read();
+$stmt = $transaction->read();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
 if($num>0){
  
     // products array
-    $products_arr=array();
-    $products_arr["records"]=array();
+    $transactions_arr=array();
+    $transactions_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -34,23 +34,22 @@ if($num>0){
         // just $name only
         extract($row);
  
-        $product_item=array(
+        $transaction_item=array(
             "id" => $id,
-            "name" => $name,
+            "date" => $date,
+            "amount" => $amount,
             "description" => html_entity_decode($description),
-            "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
+            "source" => $source
         );
  
-        array_push($products_arr["records"], $product_item);
+        array_push($transactions_arr["records"], $transaction_item);
     }
  
     // set response code - 200 OK
     http_response_code(200);
  
     // show products data in json format
-    echo json_encode($products_arr);
+    echo json_encode($transactions_arr);
 }
  
 else{
@@ -60,6 +59,6 @@ else{
  
     // tell the user no products found
     echo json_encode(
-        array("message" => "No products found.")
+        array("message" => "No transactions found.")
     );
 }

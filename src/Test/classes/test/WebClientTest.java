@@ -1,4 +1,4 @@
-package account;
+package test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class WebClientTest {
         
         
         HttpClient httpclient = HttpClients.createDefault();
-        HttpPost httppost = new HttpPost("http://localhost/api/product/read.php");
+        HttpPost httppost = new HttpPost("http://localhost/apimy/transaction/read.php");
 
 // Request parameters and other properties.
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);

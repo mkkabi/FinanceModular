@@ -1,5 +1,5 @@
 
-package account;
+package test;
 
 public class Quieries {
 	public static String createTablePersons = "CREATE TABLE Persons (ID int NOT NULL AUTO_INCREMENT, LastName varchar(255), "

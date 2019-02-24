@@ -1,18 +1,16 @@
 <?php
-class Product{
+class Transaction{
  
     // database connection and table name
     private $conn;
-    private $table_name = "products";
+    private $table_name = "account1";
  
     // object properties
     public $id;
-    public $name;
+ 		public $date;
+    public $amount;
     public $description;
-    public $price;
-    public $category_id;
-    public $category_name;
-    public $created;
+    public $source;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -23,15 +21,7 @@ class Product{
 function read(){
  
     // select all query
-    $query = "SELECT
-                c.name as category_name, p.id, p.name, p.description, p.price, p.category_id, p.created
-            FROM
-                " . $this->table_name . " p
-                LEFT JOIN
-                    categories c
-                        ON p.category_id = c.id
-            ORDER BY
-                p.created DESC";
+    $query = "SELECT id, date, amount, description, source FROM " . $this->table_name;
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);
@@ -49,24 +39,22 @@ function create(){
     $query = "INSERT INTO
                 " . $this->table_name . "
             SET
-                name=:name, price=:price, description=:description, category_id=:category_id, created=:created";
+                date=:date, amount=:amount, description=:description, source=:source";
  
     // prepare query
     $stmt = $this->conn->prepare($query);
  
     // sanitize
-    $this->name=htmlspecialchars(strip_tags($this->name));
-    $this->price=htmlspecialchars(strip_tags($this->price));
+    $this->name=htmlspecialchars(strip_tags($this->date));
+    $this->price=htmlspecialchars(strip_tags($this->amount));
     $this->description=htmlspecialchars(strip_tags($this->description));
-    $this->category_id=htmlspecialchars(strip_tags($this->category_id));
-    $this->created=htmlspecialchars(strip_tags($this->created));
+    $this->category_id=htmlspecialchars(strip_tags($this->source));
  
     // bind values
-    $stmt->bindParam(":name", $this->name);
-    $stmt->bindParam(":price", $this->price);
+    $stmt->bindParam(":date", $this->date);
+    $stmt->bindParam(":amount", $this->amount);
     $stmt->bindParam(":description", $this->description);
-    $stmt->bindParam(":category_id", $this->category_id);
-    $stmt->bindParam(":created", $this->created);
+    $stmt->bindParam(":source", $this->source);
  
     // execute query
     if($stmt->execute()){

@@ -1,4 +1,4 @@
-package account;
+package test;
  
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class WebClient {
         
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
-//            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
-            HttpGet httpGet = new HttpGet("http://localhost/api/product/read.php");
+            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
+//            HttpGet httpGet = new HttpGet("http://localhost/apimy/transaction/read.php");
             CloseableHttpResponse response1 = httpclient.execute(httpGet);
             // The underlying HTTP connection is still held by the response object
             // to allow the response content to be streamed directly from the network socket.

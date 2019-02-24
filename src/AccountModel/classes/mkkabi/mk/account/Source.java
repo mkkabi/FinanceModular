@@ -25,6 +25,11 @@ public class Source {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Source{" + "name=" + name + '}';
+	}
+
 	
 	
 }
