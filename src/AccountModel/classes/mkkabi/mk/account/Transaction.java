@@ -15,6 +15,7 @@ public class Transaction {
 		this.description = comment;
 		this.source = source;
 		acc.getTransactios().add(this);
+                acc.changeBalance(amount);
 	}
 
 	public LocalDateTime getDate() {

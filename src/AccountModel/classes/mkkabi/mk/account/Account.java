@@ -7,7 +7,7 @@ public class Account {
 
 	private static List<Account> accounts = new ArrayList();
 	private String name;
-	private double currentBalance, spendings, income;
+	private double currentBalance;
 	private List<Transaction> transactios = new ArrayList();
 
 	public Account(String name, double currentBalance) {
@@ -15,6 +15,10 @@ public class Account {
 		this.currentBalance = currentBalance;
 		accounts.add(this);
 	}
+        
+        public void changeBalance(double amount){
+            this.currentBalance += amount;
+        }
 
 	
 	
@@ -31,21 +35,15 @@ public class Account {
 		return currentBalance;
 	}
 
-	public double getSpendings() {
-		return spendings;
-	}
-
-	public double getIncome() {
-		return income;
-	}
-
 	public List<Transaction> getTransactios() {
 		return transactios;
 	}
+        
+        
 
 	@Override
 	public String toString() {
-		return "Account{" + "name=" + name + ", currentBalance=" + currentBalance + ", spendings=" + spendings + ", income=" + income + ", transactios=" + transactios + '}';
+		return "Account{" + "name=" + name + ", currentBalance=" + currentBalance + ", transactios=" + transactios + '}';
 	}
 	
 	
