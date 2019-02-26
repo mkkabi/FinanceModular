@@ -6,5 +6,11 @@
 
 module UI {
 	requires AppModel;
-   requires AccountModel;
+	requires AccountModel;
+
+    requires javafx.controls;
+	 requires javafx.base;
+	 requires javafx.fxml;
+
+    exports mkkabi.entryPoint;
 }
