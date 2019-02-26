@@ -5,12 +5,15 @@
  */
 
 module UI {
-	requires AppModel;
-	requires AccountModel;
+    requires AppModel;
+    requires AccountModel;
+    requires Connections;
 
     requires javafx.controls;
-	 requires javafx.base;
-	 requires javafx.fxml;
+    requires javafx.base;
+    requires javafx.fxml;
+    requires java.base;
 
     exports mkkabi.entryPoint;
+    exports mkkabi.fxml;
 }
