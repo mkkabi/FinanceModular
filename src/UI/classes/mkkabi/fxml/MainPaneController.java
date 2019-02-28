@@ -21,26 +21,23 @@ import mk.mkkabi.clients.WebClient1;
 
 public class MainPaneController implements Initializable {
 
-     @FXML private Button button;
-
+ @FXML Button getTransactions;
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        button.setText("asdfasdf");
-     }
+      }
 
     @FXML
-    public void getAllTransactions() {
+    public void getAllTransactions() throws IOException {
         System.out.println("test");
         WebClient1 webClient = new WebClient1();
 
-        try {
+ 
             System.out.println(webClient.getAllTransactions("http://mkkabi.mk.ua/api/transaction/read.php"));
 //            textarea1.setText(webClient.getAllTransactions("http://mkkabi.mk.ua/api/transaction/read.php"));
-         } catch (IOException ex) {
-            System.out.println(ex);
-        }
+ 
 
     }
 }

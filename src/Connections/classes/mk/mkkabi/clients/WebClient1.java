@@ -29,6 +29,7 @@ public class WebClient1 {
 
     public static String getAllTransactions(String url) throws IOException {
         HttpClient httpclient = HttpClients.createDefault();
+		  
         HttpPost httppost = new HttpPost(url);
 
 //Execute and get the response.
@@ -41,7 +42,6 @@ public class WebClient1 {
         if (entity != null) {
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
                 sb.append(line);
             }
 

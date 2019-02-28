@@ -8,11 +8,15 @@ module UI {
     requires AppModel;
     requires AccountModel;
     requires Connections;
+	 requires Json;
+	 
 
     requires javafx.controls;
     requires javafx.base;
     requires javafx.fxml;
     requires java.base;
+	 requires java.logging;
+	 requires commons.logging;
 
     exports mkkabi.entryPoint;
     exports mkkabi.fxml;
