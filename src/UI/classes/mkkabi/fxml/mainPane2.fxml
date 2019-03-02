@@ -4,8 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" stylesheets="@../resources/css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="800.0" stylesheets="@../resources/css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -52,5 +51,16 @@
             </AnchorPane>
         </items>
       </SplitPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ComboBox layoutY="14.0" prefWidth="150.0" promptText="Account" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <DatePicker layoutX="27.0" layoutY="194.0" promptText="Date" />
+            <TextField layoutX="40.0" layoutY="52.0" promptText="Amount" />
+            <TextField layoutX="40.0" layoutY="94.0" promptText="Description" />
+            <ComboBox layoutX="51.0" layoutY="138.0" prefWidth="150.0" promptText="Category" />
+            <Button layoutX="180.0" layoutY="411.0" mnemonicParsing="false" text="Add" />
+            <CheckBox layoutX="7.0" layoutY="415.0" mnemonicParsing="false" text="Save as template" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

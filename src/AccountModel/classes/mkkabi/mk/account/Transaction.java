@@ -8,13 +8,13 @@ public class Transaction {
 	private LocalDateTime date;
 	private double amount;
 	private String description;
-	private Source source;
+	private Source category;
 
 	public Transaction(Account acc, LocalDateTime date, double amount, String comment, Source source) {
 		this.date = date;
 		this.amount = amount;
 		this.description = comment;
-		this.source = source;
+		this.category = source;
 		acc.getTransactios().add(this);
                 acc.changeBalance(amount);
 	}
@@ -32,7 +32,7 @@ public class Transaction {
 	}
 
 	public Source getSource() {
-		return source;
+		return category;
 	}
 
 	public void setDate(LocalDateTime date) {
@@ -48,12 +48,12 @@ public class Transaction {
 	}
 
 	public void setSource(Source source) {
-		this.source = source;
+		this.category = source;
 	}
 
 	@Override
 	public String toString() {
-		return "Transaction{" + "date=" + date + ", amount=" + amount + ", description=" + description + ", source=" + source + '}';
+		return "Transaction{" + "date=" + date + ", amount=" + amount + ", description=" + description + ", source=" + category + '}';
 	}
 	
 	

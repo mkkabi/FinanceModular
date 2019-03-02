@@ -1,2 +1,2 @@
-INSERT INTO `account1` (`date`, `amount`, `description`, `source`, `modified`) VALUES
-('2014-06-01 01:12:26', '336.02', 'My first test transaction!',  'test Source', '2014-05-31 17:12:26');
+INSERT INTO `account1` (`account`, `date`, `amount`, `description`, `category`, `modified`) VALUES
+('account1', '2014-06-01 01:12:26', '336.02', 'My first test transaction!',  'test category', '2014-05-31 17:12:26');

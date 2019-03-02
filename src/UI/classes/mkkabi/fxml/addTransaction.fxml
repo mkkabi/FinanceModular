@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox layoutY="14.0" prefWidth="150.0" promptText="Account" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <DatePicker layoutX="27.0" layoutY="194.0" promptText="Date" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="190.0" />
+      <TextField layoutX="40.0" layoutY="52.0" promptText="Amount" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="55.0" />
+      <TextField layoutX="40.0" layoutY="94.0" promptText="Description" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0" />
+      <ComboBox layoutX="51.0" layoutY="138.0" prefWidth="150.0" promptText="Category" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="135.0" />
+      <Button layoutX="180.0" layoutY="411.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <CheckBox layoutX="14.0" layoutY="247.0" mnemonicParsing="false" text="Save as template" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="230.0" />
+   </children>
+</AnchorPane>

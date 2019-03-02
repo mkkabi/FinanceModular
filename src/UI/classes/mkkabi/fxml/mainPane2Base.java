@@ -56,7 +56,7 @@ public class mainPane2Base extends AnchorPane {
         setMaxWidth(USE_PREF_SIZE);
         setMinHeight(USE_PREF_SIZE);
         setMinWidth(USE_PREF_SIZE);
-        setPrefHeight(450.0);
+        setPrefHeight(479.0);
         setPrefWidth(800.0);
         getStylesheets().add("style.css");
 
