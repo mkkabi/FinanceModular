@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2019-02-28T07:30:52.866159Z</date>
-  <millis>1551339052866</millis>
-  <nanos>159000</nanos>
+  <date>2019-03-02T12:54:12.473537Z</date>
+  <millis>1551531252473</millis>
+  <nanos>537000</nanos>
   <sequence>0</sequence>
   <logger>main</logger>
   <level>CONFIG</level>
@@ -14,9 +14,9 @@
   <message>Configuration done.</message>
 </record>
 <record>
-  <date>2019-02-28T07:30:52.928287Z</date>
-  <millis>1551339052928</millis>
-  <nanos>287000</nanos>
+  <date>2019-03-02T12:54:12.640705Z</date>
+  <millis>1551531252640</millis>
+  <nanos>705000</nanos>
   <sequence>1</sequence>
   <logger>main</logger>
   <level>FINE</level>
@@ -26,9 +26,9 @@
   <message>Finer logged</message>
 </record>
 <record>
-  <date>2019-02-28T07:30:56.734162Z</date>
-  <millis>1551339056734</millis>
-  <nanos>162000</nanos>
+  <date>2019-03-02T12:54:28.017241Z</date>
+  <millis>1551531268017</millis>
+  <nanos>241000</nanos>
   <sequence>2</sequence>
   <logger>main</logger>
   <level>SEVERE</level>
@@ -38,39 +38,15 @@
   <message>test message from mainPaneBase</message>
 </record>
 <record>
-  <date>2019-02-28T07:30:56.737531Z</date>
-  <millis>1551339056737</millis>
-  <nanos>531000</nanos>
+  <date>2019-03-02T12:54:28.024914Z</date>
+  <millis>1551531268024</millis>
+  <nanos>914000</nanos>
   <sequence>3</sequence>
   <logger>main</logger>
   <level>SEVERE</level>
   <class>mkkabi.fxml.mainPaneBase</class>
   <method>lambda$json$1</method>
   <thread>19</thread>
-  <message>test message from mainPaneBase</message>
-</record>
-<record>
-  <date>2019-02-28T07:31:39.367778Z</date>
-  <millis>1551339099367</millis>
-  <nanos>778000</nanos>
-  <sequence>4</sequence>
-  <logger>main</logger>
-  <level>SEVERE</level>
-  <class>mkkabi.fxml.mainPaneBase</class>
-  <method>lambda$json$1</method>
-  <thread>20</thread>
-  <message>test message from mainPaneBase</message>
-</record>
-<record>
-  <date>2019-02-28T07:31:39.370854Z</date>
-  <millis>1551339099370</millis>
-  <nanos>854000</nanos>
-  <sequence>5</sequence>
-  <logger>main</logger>
-  <level>SEVERE</level>
-  <class>mkkabi.fxml.mainPaneBase</class>
-  <method>lambda$json$1</method>
-  <thread>20</thread>
   <message>test message from mainPaneBase</message>
 </record>
 </log>

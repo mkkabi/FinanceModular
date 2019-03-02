@@ -13,7 +13,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import static mkkabi.entryPoint.MainFxml2.LOGGER;
 
 public class mainPaneBase extends AnchorPane {
 
@@ -93,13 +92,13 @@ public class mainPaneBase extends AnchorPane {
 		button.setLayoutX(14.0);
 		button.setLayoutY(14.0);
 		button.setMnemonicParsing(false);
-		button.setOnMouseClicked(e -> {
-			try {
-				this.json();
-			} catch (ParseException ex) {
-			} catch (IOException ex) {
-			}
-		});
+//		button.setOnMouseClicked(e -> {
+//			try {
+//				this.json();
+//			} catch (ParseException ex) {
+//			} catch (IOException ex) {
+//			}
+//		});
 //        button.setOnMouseClicked(this::getAllTransactions);
 		button.setText("GetTransactions");
 
@@ -155,38 +154,7 @@ public class mainPaneBase extends AnchorPane {
 //        }
 	}
 
-	public void json() throws ParseException, IOException {
-		Runnable r = () -> {
-
-			WebClient1 webClient = new WebClient1();
-			try {
-				Object obj = new JSONParser().parse(WebClient1.getAllTransactions("http://mkkabi.mk.ua/api/transaction/read.php"));
-
-				JSONObject jo = (JSONObject) obj;
-				JSONArray ja = (JSONArray) jo.get("records");
-				Iterator itr2 = ja.iterator();
-				StringBuffer sb = new StringBuffer();
-				while (itr2.hasNext()) {
-					Object obj2 = itr2.next();
-					JSONObject jo2 = (JSONObject) obj2;
-					String description = (String) jo2.get("description");
-					sb.append(description);
-					sb.append("\n");
-
-					System.out.println(description);
-					LOGGER.log(Level.SEVERE, "test message from mainPaneBase");
-				}
-				textField3.setText(sb.toString());
-			} catch (IOException ex) {
-				System.out.println(ex.toString());
-			} catch (ParseException ex) {
-				System.out.println(ex.toString());
-			}
-		};
-		Thread t = new Thread(r, "Json parser");
-		t.start();
-
-	}
+	
 	
 	
 }

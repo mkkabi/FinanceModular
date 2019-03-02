@@ -18,45 +18,21 @@ import java.util.logging.*;
 import mkkabi.fxml.MainPaneController;
 import org.apache.commons.logging.*;
 
-/**
- *
- * @author matt
- */
+ 
 public class MainFxml2 extends Application {
 
-	public static final Logger LOGGER = Logger.getLogger("main");
-	FileHandler fileHandler;
-	Handler consoleHandler;
+	
+
 	private AnchorPane root;
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		root = new mainPaneBase();
+		root = new mainPane2Base();
 
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
- 
 
-		consoleHandler = new ConsoleHandler();
-			fileHandler  = new FileHandler("log.txt");
-			
-			//Assigning handlers to LOGGER object
-			LOGGER.addHandler(consoleHandler);
-			LOGGER.addHandler(fileHandler);
-			
-			//Setting levels to handlers and LOGGER
-			consoleHandler.setLevel(Level.ALL);
-			fileHandler.setLevel(Level.ALL);
-			LOGGER.setLevel(Level.ALL);
-			
-			LOGGER.config("Configuration done.");
-			
-			//Console handler removed
-			LOGGER.removeHandler(consoleHandler);
-			
-			LOGGER.log(Level.FINE, "Finer logged");
-			
 			
 			
 		//primaryStage.setOnCloseRequest(w -> model.saveCurrentState());
