@@ -1,11 +1,20 @@
-
 package test;
 
+import com.mysql.cj.result.LocalDateTimeValueFactory;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Test {
-	
-	
-	public static void main(String[] args) {
-		int i = 10;
-		System.out.println(i += 5);
-	}
+
+    LocalDateTime dateTime;
+
+    public static void main(String[] args) {
+//        System.out.println( LocalDateTime.now());
+        TreeSet<String> set = new TreeSet();
+        set.add("a");
+//        set.
+        
+    }
 }

@@ -10,11 +10,11 @@ public class Transaction {
 	private String description;
 	private Source category;
 
-	public Transaction(Account acc, LocalDateTime date, double amount, String comment, Source source) {
+	public Transaction(Account acc, LocalDateTime date, double amount, String comment, Source category) {
 		this.date = date;
 		this.amount = amount;
 		this.description = comment;
-		this.category = source;
+		this.category = category;
 		acc.getTransactios().add(this);
                 acc.changeBalance(amount);
 	}
